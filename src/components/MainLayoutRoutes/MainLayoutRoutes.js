@@ -1,12 +1,12 @@
-import Header from "../Header/Header";
 import Search from "../Search/Search";
 import Results from "../Results/Results";
 import History from "../History/History";
+import Header from "../Header/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function MainLayoutRoutes() {
   return (
-    <Router>
+    <>
       <nav>
         <Header />
       </nav>
@@ -15,7 +15,7 @@ function MainLayoutRoutes() {
         <Route path="/results" element={<Results />} />
         <Route path="/history" element={<History />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 

@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
-        <Route path="/landing-page" element={<MainLayoutRoutes />} />
+        <Route path="/landing-page/*" element={<MainLayoutRoutes />} />
       </Routes>
     </Router>
   );
