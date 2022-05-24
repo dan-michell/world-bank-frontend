@@ -74,12 +74,13 @@ function Search(props) {
             className="flex flex-col items-center justify-center m-10"
             key={index}
           >
-            <label>Country</label>
+          
             <input
+            placeholder="Country"
               type="text"
               name="country"
               value={element.country || ""}
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-500 peer"
+              className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-500 peer"
               onChange={(e) => handleCountryChange(index, e)}
             />
             {index ? (
@@ -98,12 +99,13 @@ function Search(props) {
             className="flex flex-col items-center justify-center m-10"
             key={index}
           >
-            <label>Indicator</label>
+           
             <input
               type="text"
+              placeholder="Indicator"
               name="indicator"
               value={element.indicator || ""}
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-500 peer"
+              className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-500 peer"
               onChange={(e) => handleIndicatorChange(index, e)}
             />
             {index ? (
