@@ -1,4 +1,4 @@
-import Search from "../Search/Search";
+import Search from "../Search/Search2";
 import Results from "../Results/Results";
 import History from "../History/History";
 import Header from "../Header/Header";

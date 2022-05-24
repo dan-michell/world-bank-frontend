@@ -32,16 +32,16 @@ function Search(props) {
               type="text"
               name="country"
               value={country}
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-500 peer"
               placeholder=" "
-              required
+              requipink
               onChange={(e) => {
                 setCountry(e.target.value);
               }}
             />
             <label
               htmlFor="country"
-              className="peer-focus:font-medium absolute text-sm text-gray-600 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="peer-focus:font-medium absolute text-sm text-gray-600 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-500 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Country
             </label>
@@ -51,7 +51,7 @@ function Search(props) {
             <input
               type="text"
               value={indicator}
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-500 peer"
               placeholder=" "
               onChange={(e) => {
                 setIndicator(e.target.value);
@@ -59,7 +59,7 @@ function Search(props) {
             />
             <label
               htmlFor="indicator"
-              className="peer-focus:font-medium absolute text-sm text-gray-600 dark:text-gray-600 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="peer-focus:font-medium absolute text-sm text-gray-600 dark:text-gray-600 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-pink-500 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Indicator
             </label>
@@ -85,7 +85,7 @@ function Search(props) {
                 name="start"
                 value={startYear}
                 type="text"
-                class="bg-gray-50 border border-gray-300 text-gray-900 xs:text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                class="bg-gray-50 border border-gray-300 text-gray-900 xs:text-xs rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full pl-10 p-2.5"
                 placeholder="Start Year"
                 onChange={(e) => {
                   setStartYear(e.target.value);
@@ -112,7 +112,7 @@ function Search(props) {
                 name="end"
                 value={endYear}
                 type="text"
-                class="bg-gray-50 border border-gray-300 text-gray-900 xs:text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                class="bg-gray-50 border border-gray-300 text-gray-900 xs:text-xs rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full pl-10 p-2.5"
                 placeholder="End Year"
                 onChange={(e) => {
                   setEndYear(e.target.value);
@@ -123,7 +123,7 @@ function Search(props) {
         </div>
         <button
           type="submit"
-          className="m-5 text-gray-200 bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-blue-800"
+          className="m-5 text-gray-200 bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-pink-800"
         >
           Search
         </button>
