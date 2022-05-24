@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 function Search(props) {
-  const [indicatorFormValues, setIndicatorFormValues] = useState([
-    { indicator: "" },
-  ]);
+  const [indicatorFormValues, setIndicatorFormValues] = useState([{ indicator: "" }]);
   const [countryFormValues, setCountryFormValues] = useState([{ country: "" }]);
   const [startYear, setStartYear] = useState("");
   const [endYear, setEndYear] = useState("");
@@ -65,18 +63,14 @@ function Search(props) {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center mt-28 border-2 border-black">
+    <div className="flex flex-col justify-center items-center mt-28">
       <h1 className="bg-transparent text-4xl text-center">Search...</h1>
 
       <form onSubmit={handleSubmit}>
         {countryFormValues.map((element, index) => (
-          <div
-            className="flex flex-col items-center justify-center m-10"
-            key={index}
-          >
-          
+          <div className="flex flex-col items-center justify-center m-10" key={index}>
             <input
-            placeholder="Country"
+              placeholder="Country"
               type="text"
               name="country"
               value={element.country || ""}
@@ -95,11 +89,7 @@ function Search(props) {
           </div>
         ))}
         {indicatorFormValues.map((element, index) => (
-          <div
-            className="flex flex-col items-center justify-center m-10"
-            key={index}
-          >
-           
+          <div className="flex flex-col items-center justify-center m-10" key={index}>
             <input
               type="text"
               placeholder="Indicator"
