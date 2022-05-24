@@ -65,7 +65,7 @@ function Search(props) {
   }
 
   return (
-    <div className="m-28 w-[75%]">
+    <div className="flex flex-col justify-center items-center mt-28 border-2 border-black">
       <h1 className="bg-transparent text-4xl text-center">Search...</h1>
 
       <form onSubmit={handleSubmit}>
@@ -111,7 +111,7 @@ function Search(props) {
             {index ? (
               <button
                 type="button"
-                className="m-5 text-gray-200 bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-pink-800"
+                className="mt-3 text-gray-200 bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-pink-800"
                 onClick={() => removeIndicatorFormFields(index)}
               >
                 Remove
@@ -176,7 +176,7 @@ function Search(props) {
           </div>
         </div>
 
-        <div className="justify-center items-center ml-[23%]">
+        <div className="justify-center items-center">
           {indicatorIndex ? (
             <button
               className="m-5 text-gray-200 bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-pink-800"
