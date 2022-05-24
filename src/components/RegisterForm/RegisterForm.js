@@ -22,7 +22,7 @@ function RegisterForm(props) {
     <div className="flex items-center flex-col h-screen w-screen">
       <h1 className=" text-6xl mt-14">World Bank Dashboard</h1>
       <form className="w-[50%] mt-10">
-        <h2 className="text-2xl mb-3">Create new account</h2>
+        <h2 className="text-2xl mb-3">Create Account</h2>
         <div className="relative z-0 w-full mb-6 group">
           <input
             type="username"
@@ -114,7 +114,7 @@ function RegisterForm(props) {
         </div>
         {showResponse ? (
           <div>
-            <p className="text-gray-800 text-sm ml-5">{registerResponse}</p>
+            <p className="text-green-700 text-lg mt-5">{registerResponse}</p>
           </div>
         ) : (
           ""
