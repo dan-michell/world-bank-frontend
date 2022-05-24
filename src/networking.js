@@ -26,8 +26,10 @@ export default class Networking {
         },
         body: JSON.stringify({ username, password }),
       });
-      const json = await response.json();
-      return json;
+      if (!response.ok) {
+        return false;
+      }
+      return true;
     } catch (e) {
       console.log(e);
     }

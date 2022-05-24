@@ -5,7 +5,6 @@ import Networking from "../../networking";
 function LoginForm(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loginResponse, setLoginResponse] = useState("");
   const [showResponse, setShowResponse] = useState(false);
   const networking = new Networking();
   const navigate = useNavigate();
@@ -13,8 +12,9 @@ function LoginForm(props) {
   async function handleUserLogin(e) {
     e.preventDefault();
     const loginResponseInfo = await networking.loginUser(username, password);
-    navigate("/landing-page/search");
-    setLoginResponse(loginResponseInfo.response);
+    if (loginResponseInfo) {
+      navigate("/landing-page/search");
+    }
     setShowResponse(true);
   }
 
@@ -75,7 +75,7 @@ function LoginForm(props) {
             </button>
           </Link>
         </div>
-        {showResponse ? <p className="text-green-700 text-lg mt-5">{loginResponse}</p> : ""}
+        {showResponse ? <p className="text-gray-700 text-lg mt-5">No user found, try again or register.</p> : ""}
       </form>
     </div>
   );
