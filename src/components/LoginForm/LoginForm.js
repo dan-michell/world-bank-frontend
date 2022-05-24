@@ -1,9 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Networking from "../../networking";
 
 function LoginForm(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginResponse, setLoginResponse] = useState("");
+  const [showResponse, setShowResponse] = useState(false);
+  const networking = new Networking();
+  const navigate = useNavigate();
+
+  async function handleUserLogin(e) {
+    e.preventDefault();
+    const loginResponseInfo = await networking.loginUser(username, password);
+    navigate("/landing-page/search");
+    setLoginResponse(loginResponseInfo.response);
+    setShowResponse(true);
+  }
+
   return (
     <div className="flex items-center flex-col h-screen w-screen">
       <h1 className=" text-6xl mt-14">World Bank Dashboard</h1>
@@ -14,7 +28,7 @@ function LoginForm(props) {
             type="email"
             name="floating_email"
             value={username}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
             onChange={(e) => {
@@ -33,7 +47,7 @@ function LoginForm(props) {
             <input
               type="password"
               value={password}
-              className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -51,6 +65,7 @@ function LoginForm(props) {
           <button
             type="submit"
             className="text-gray-200 bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-blue-800"
+            onClick={handleUserLogin}
           >
             Login
           </button>
@@ -60,6 +75,7 @@ function LoginForm(props) {
             </button>
           </Link>
         </div>
+        {showResponse ? <p className="text-green-700 text-lg mt-5">{loginResponse}</p> : ""}
       </form>
     </div>
   );
