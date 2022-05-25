@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 function Search(props) {
-  const [indicatorFormValues, setIndicatorFormValues] = useState([{ indicator: "" }]);
+  const [indicatorFormValues, setIndicatorFormValues] = useState([
+    { indicator: "" },
+  ]);
   const [countryFormValues, setCountryFormValues] = useState([{ country: "" }]);
   const [startYear, setStartYear] = useState("");
   const [endYear, setEndYear] = useState("");
@@ -68,7 +70,10 @@ function Search(props) {
 
       <form onSubmit={handleSubmit}>
         {countryFormValues.map((element, index) => (
-          <div className="flex flex-col items-center justify-center m-10" key={index}>
+          <div
+            className="flex flex-col items-center justify-center m-10"
+            key={index}
+          >
             <input
               placeholder="Country"
               type="text"
@@ -89,7 +94,10 @@ function Search(props) {
           </div>
         ))}
         {indicatorFormValues.map((element, index) => (
-          <div className="flex flex-col items-center justify-center m-10" key={index}>
+          <div
+            className="flex flex-col items-center justify-center m-10"
+            key={index}
+          >
             <input
               type="text"
               placeholder="Indicator"
@@ -169,6 +177,7 @@ function Search(props) {
         <div className="justify-center items-center">
           {indicatorIndex ? (
             <button
+              data-testid="remove-button"
               className="m-5 text-gray-200 bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-pink-800"
               type="button"
               onClick={() => addCountryFormFields()}
