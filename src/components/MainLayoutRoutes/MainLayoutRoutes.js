@@ -2,6 +2,7 @@ import Search from "../Search/Search";
 import Results from "../Results/Results";
 import History from "../History/History";
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -17,7 +18,7 @@ function MainLayoutRoutes() {
   }
 
   return (
-    <>
+    <div className="h-full">
       <nav>
         <Header />
       </nav>
@@ -26,7 +27,10 @@ function MainLayoutRoutes() {
         <Route path="/results" element={<Results countryData={countryData} />} />
         <Route path="/history" element={<History />} />
       </Routes>
-    </>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
   );
 }
 

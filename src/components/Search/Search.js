@@ -77,9 +77,9 @@ function Search(props) {
 
   return (
     <div className="flex flex-col justify-center items-center mt-28">
-      <h1 className="bg-transparent text-4xl text-center">Search...</h1>
+      <h1 className="bg-transparent text-4xl text-center">Search</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="w-[65%]">
         {countryFormValues.map((element, index) => (
           <div className="flex flex-col items-center justify-center m-10" key={index}>
             <input
@@ -87,13 +87,13 @@ function Search(props) {
               type="text"
               name="country"
               value={element.country || ""}
-              className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-500 peer"
+              className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
               onChange={(e) => handleCountryChange(index, e)}
             />
             {index ? (
               <button
                 type="button"
-                className="m-5 text-gray-200 bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-pink-800"
+                className="m-5 text-gray-200 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500"
                 onClick={() => removeCountryFormFields(index)}
               >
                 Remove
@@ -108,13 +108,13 @@ function Search(props) {
               placeholder="Indicator"
               name="indicator"
               value={element.indicator || ""}
-              className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-pink-500 peer"
+              className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
               onChange={(e) => handleIndicatorChange(index, e)}
             />
             {index ? (
               <button
                 type="button"
-                className="mt-3 text-gray-200 bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-pink-800"
+                className="mt-3 text-gray-200 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500"
                 onClick={() => removeIndicatorFormFields(index)}
               >
                 Remove
@@ -143,7 +143,7 @@ function Search(props) {
               name="start"
               value={startYear}
               type="text"
-              className="bg-gray-50 border border-gray-300 text-gray-900 xs:text-xs rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full pl-10 p-2.5"
+              className="bg-gray-50 border border-gray-300 text-gray-900 xs:text-xs rounded-lg block w-full pl-10 p-2.5"
               placeholder="Start Year"
               onChange={(e) => {
                 setStartYear(e.target.value);
@@ -170,7 +170,7 @@ function Search(props) {
               name="end"
               value={endYear}
               type="text"
-              className="bg-gray-50 border border-gray-300 text-gray-900 xs:text-xs rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full pl-10 p-2.5"
+              className="bg-gray-50 border border-gray-300 text-gray-900 xs:text-xs rounded-lg block w-full pl-10 p-2.5"
               placeholder="End Year"
               onChange={(e) => {
                 setEndYear(e.target.value);
@@ -179,11 +179,11 @@ function Search(props) {
           </div>
         </div>
 
-        <div className="justify-center items-center">
+        <div className="flex justify-center items-center">
           {indicatorIndex ? (
             <button
               data-testid="remove-button"
-              className="m-5 text-gray-200 bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-pink-800"
+              className="m-5 text-gray-200 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500"
               type="button"
               onClick={() => addCountryFormFields()}
             >
@@ -192,7 +192,7 @@ function Search(props) {
           ) : null}
           {countryIndex ? (
             <button
-              className="m-5 text-gray-200 bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-pink-800"
+              className="m-5 text-gray-200 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500"
               type="button"
               onClick={() => addIndicatorFormFields()}
             >
@@ -200,7 +200,7 @@ function Search(props) {
             </button>
           ) : null}
           <button
-            className="m-5 text-gray-200 bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-pink-800"
+            className="m-5 text-gray-200 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500"
             type="submit"
           >
             Submit

@@ -45,7 +45,7 @@ function Results(props) {
   };
 
   return (
-    <div className="flex flex-col m-28 w-[80%] h-[80%] items-center justify-center">
+    <div className="mx-[15%] my-[3%] w-[70%] h-[70%]">
       <Line data={data} options={options} />
     </div>
   );

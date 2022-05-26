@@ -11,7 +11,7 @@ function Header(props) {
   }
 
   return (
-    <nav className="  mx-auto border-b-[1px] border-gray-600 px-2 py-2.5 w-[80%] mt-3 mb-5">
+    <nav className="mx-auto border-b-[1px] border-gray-600 px-2 py-2.5 w-[80%] mt-3 mb-5">
       <div className="flex flex-wrap justify-between items-center mx-auto">
         <h1 className="self-center text-3xl font-semibold whitespace-nowrap ">World Bank</h1>
         <div className="flex gap-5">
