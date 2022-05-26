@@ -48,6 +48,21 @@ export default class Networking {
     }
   }
 
+  async fetchUserSearchData(countryFormValues, indicatorFormValues, startYear, endYear) {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/search?country=${countryFormValues[0].country}&indicator=${indicatorFormValues[0].indicator}&startYear=${startYear}&endYear=${endYear}`,
+        {
+          credentials: "include",
+        }
+      );
+      const worldBankData = await response.json();
+      return worldBankData;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   async getUser() {
     try {
       const response = await fetch("http://localhost:8080/sessions", {
