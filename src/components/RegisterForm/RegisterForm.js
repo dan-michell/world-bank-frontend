@@ -13,7 +13,12 @@ function RegisterForm(props) {
 
   async function handleRegisterSubmit(e) {
     e.preventDefault();
-    const registerResponseInfo = await networking.registerUser(email, username, password, confirmPassword);
+    const registerResponseInfo = await networking.registerUser(
+      email,
+      username,
+      password,
+      confirmPassword
+    );
     setRegisterResponse(registerResponseInfo);
     setShowResponse(true);
   }
@@ -100,6 +105,7 @@ function RegisterForm(props) {
         </div>
         <div className="flex items-center">
           <button
+            data-testid="create-account-button"
             type="submit"
             className="text-gray-200 bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-blue-800"
             onClick={handleRegisterSubmit}
@@ -107,7 +113,10 @@ function RegisterForm(props) {
             Create Account
           </button>
           <Link to="/login">
-            <button type="submit" className="bg-transparent text-gray-600 text-sm italic ml-3 p-0 hover:text-black">
+            <button
+              type="submit"
+              className="bg-transparent text-gray-600 text-sm italic ml-3 p-0 hover:text-black"
+            >
               Already have an account/Recently registered?
             </button>
           </Link>

@@ -25,6 +25,7 @@ function LoginForm(props) {
         <h2 className="text-2xl mb-3">Login</h2>
         <div className="relative z-0 w-full mb-6 group">
           <input
+            data-testid="username-input"
             type="email"
             name="floating_email"
             value={username}
@@ -45,6 +46,7 @@ function LoginForm(props) {
         <div className="flex gap-5">
           <div className="relative z-0 w-full mb-6 group">
             <input
+              data-testid="password-input"
               type="password"
               value={password}
               className="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -64,18 +66,32 @@ function LoginForm(props) {
         <div className="flex items-center">
           <button
             type="submit"
+            data-testid="login-button"
             className="text-gray-200 bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-blue-800"
             onClick={handleUserLogin}
           >
             Login
           </button>
           <Link to="/register">
-            <button type="submit" className="bg-transparent text-gray-600 text-sm italic ml-3 p-0 hover:text-black">
+            <button
+              data-testid="dont-have-an-account-button"
+              type="submit"
+              className="bg-transparent text-gray-600 text-sm italic ml-3 p-0 hover:text-black"
+            >
               Don't have an account?
             </button>
           </Link>
         </div>
-        {showResponse ? <p className="text-gray-700 text-lg mt-5">No user found, try again or register.</p> : ""}
+        {showResponse ? (
+          <p
+            data-testid="no-user-found-alert"
+            className="text-gray-700 text-lg mt-5"
+          >
+            No user found, try again or register.
+          </p>
+        ) : (
+          ""
+        )}
       </form>
     </div>
   );
