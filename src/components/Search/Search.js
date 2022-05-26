@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import Networking from "../../networking";
+import { useNavigate } from "react-router-dom";
 
 function Search(props) {
-  const [indicatorFormValues, setIndicatorFormValues] = useState([
-    { indicator: "" },
-  ]);
+  const [indicatorFormValues, setIndicatorFormValues] = useState([{ indicator: "" }]);
   const [countryFormValues, setCountryFormValues] = useState([{ country: "" }]);
   const [startYear, setStartYear] = useState("");
   const [endYear, setEndYear] = useState("");
   const [countryIndex, setCountryIndex] = useState(true);
   const [indicatorIndex, setIndicatorIndex] = useState(true);
+  const networking = new Networking();
+  const navigate = useNavigate();
 
   useEffect(() => {
     countryFormValues.forEach((element, index) => {
@@ -20,6 +21,7 @@ function Search(props) {
       }
     });
   }, [countryFormValues]);
+
   useEffect(() => {
     indicatorFormValues.forEach((element, index) => {
       if (index >= 1) {
@@ -32,18 +34,19 @@ function Search(props) {
 
   function handleIndicatorChange(i, e) {
     let newIndicatorFormValues = [...indicatorFormValues];
-    newIndicatorFormValues[i][e.target.name] = e.target.value; //property of form called name for country and indicator
+    newIndicatorFormValues[i][e.target.name] = e.target.value;
     setIndicatorFormValues(newIndicatorFormValues);
   }
   function handleCountryChange(i, e) {
     let newCountryFormValues = [...countryFormValues];
-    newCountryFormValues[i][e.target.name] = e.target.value; //property of form called name for country and indicator
+    newCountryFormValues[i][e.target.name] = e.target.value;
     setCountryFormValues(newCountryFormValues);
   }
 
   function addCountryFormFields() {
     setCountryFormValues([...countryFormValues, { country: "" }]);
   }
+
   function addIndicatorFormFields() {
     setIndicatorFormValues([...indicatorFormValues, { indicator: "" }]);
   }
@@ -53,15 +56,23 @@ function Search(props) {
     newFormValues.splice(i, 1);
     setCountryFormValues(newFormValues);
   }
+
   function removeIndicatorFormFields(i) {
     let newFormValues = [...indicatorFormValues];
     newFormValues.splice(i, 1);
     setIndicatorFormValues(newFormValues);
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    alert(JSON.stringify(indicatorFormValues));
+    const countryData = await networking.fetchUserSearchData(
+      countryFormValues,
+      indicatorFormValues,
+      startYear,
+      endYear
+    );
+    props.changeCountryData(countryData.rows);
+    navigate("/landing-page/results");
   }
 
   return (
@@ -70,10 +81,7 @@ function Search(props) {
 
       <form onSubmit={handleSubmit}>
         {countryFormValues.map((element, index) => (
-          <div
-            className="flex flex-col items-center justify-center m-10"
-            key={index}
-          >
+          <div className="flex flex-col items-center justify-center m-10" key={index}>
             <input
               placeholder="Country"
               type="text"
@@ -94,10 +102,7 @@ function Search(props) {
           </div>
         ))}
         {indicatorFormValues.map((element, index) => (
-          <div
-            className="flex flex-col items-center justify-center m-10"
-            key={index}
-          >
+          <div className="flex flex-col items-center justify-center m-10" key={index}>
             <input
               type="text"
               placeholder="Indicator"

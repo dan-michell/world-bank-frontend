@@ -1,5 +1,11 @@
+import { useEffect } from "react";
+
 function Results(props) {
-  return <div>Results</div>;
+  useEffect(() => {
+    console.log(props.countryData);
+  }, [props.countryData]);
+
+  return <div></div>;
 }
 
 export default Results;
