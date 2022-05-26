@@ -1,7 +1,7 @@
 export default class Networking {
   async registerUser(email, username, password, passwordConformation) {
     try {
-      const response = await fetch("http://localhost:8080/users", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -18,7 +18,8 @@ export default class Networking {
 
   async loginUser(username, password) {
     try {
-      const response = await fetch("http://localhost:8080/sessions", {
+      console.log();
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/sessions`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -37,7 +38,7 @@ export default class Networking {
 
   async logoutUser() {
     try {
-      const response = await fetch("http://localhost:8080/sessions", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/sessions`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -51,7 +52,7 @@ export default class Networking {
   async fetchUserSearchData(countryFormValues, indicatorFormValues, startYear, endYear) {
     try {
       const response = await fetch(
-        `http://localhost:8080/search?country=${countryFormValues[0].country}&indicator=${indicatorFormValues[0].indicator}&startYear=${startYear}&endYear=${endYear}`,
+        `${process.env.REACT_APP_API_URL}/search?country=${countryFormValues[0].country}&indicator=${indicatorFormValues[0].indicator}&startYear=${startYear}&endYear=${endYear}`,
         {
           credentials: "include",
         }
@@ -65,7 +66,7 @@ export default class Networking {
 
   async getUser() {
     try {
-      const response = await fetch("http://localhost:8080/sessions", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/sessions`, {
         credentials: "include",
       });
       const user = await response.json();
