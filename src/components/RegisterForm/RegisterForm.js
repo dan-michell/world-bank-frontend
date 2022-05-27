@@ -13,6 +13,7 @@ function RegisterForm(props) {
 
   async function handleRegisterSubmit(e) {
     e.preventDefault();
+    setShowResponse(false);
     const registerResponseInfo = await networking.registerUser(email, username, password, confirmPassword);
     setRegisterResponse(registerResponseInfo);
     setShowResponse(true);
@@ -114,7 +115,7 @@ function RegisterForm(props) {
         </div>
         {showResponse ? (
           <div>
-            <p className="text-green-700 text-lg mt-5">{registerResponse}</p>
+            <p className="text-gray-700 text-lg mt-5">{registerResponse}</p>
           </div>
         ) : (
           ""
