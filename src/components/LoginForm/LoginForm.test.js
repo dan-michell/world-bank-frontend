@@ -41,15 +41,7 @@ describe("Login Form", () => {
     await noUserFoundAlert;
   });
 
-  test("When 'Don't have an account?' is clicked, the user is redirected to the register page", async () => {
-    render(loginForm);
-    expect(
-      screen.getByTestId("dont-have-an-account-button")
-    ).toBeInTheDocument();
-    fireEvent.click(screen.getByTestId("dont-have-an-account-button"));
-    render(registerForm);
-    expect(screen.getByTestId("create-account-button")).toBeInTheDocument();
-  });
+
 
   test("When a non-existent username and password is entered into the form, 'No user found' should be displayed", async () => {
     render(loginForm);
