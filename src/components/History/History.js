@@ -1,20 +1,32 @@
 import HistoryCard from "./HistoryCard";
+import { useState, useEffect } from "react";
+import Networking from "../../networking";
 
 function History(props) {
+  const [history, setHistory] = useState([]);
+  const networking = new Networking();
+
+  useEffect(() => {
+    async function fetchUserHistory() {
+      const userData = await networking.fetchHistoryData();
+      setHistory(userData);
+    }
+    fetchUserHistory();
+  }, []);
+
   function populateHistoryCards() {
-    object.forEach((element) => {
+    return history.map((element) => {
       return (
         <HistoryCard
-          user={element.user}
-          country_name={element.country_name}
-          indicator_name={element.indicator_name}
-          start_year={element.start_year}
-          end_year={element.end_year}
-          created_at={element.created_at}
+          key={element.id}
+          countryName={element.country_name}
+          indicatorName={element.indicator}
+          startYear={element.start_year}
+          endYear={element.end_year}
+          createdAt={element.created_at}
+          changeCountryData={props.changeCountryData}
         />
       );
-      //user, countryname, indicator, startyear, endyear
-      // createdAt
     });
   }
 
