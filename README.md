@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# World Bank Data
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Rulers-Lite Week 10 project:
 
-## Available Scripts
+The brief was to create a prototype data visualisation dashboard for The World Bank that displays graphical data on World Development Indicators. 
+We were tasked to include as a minimum viable product:
+ - Log In Feature
+ - Search Functionality (One indicator, one country)
+ - Search History Functionality
+In addition to these core features, we were given a number of other User Stories to fulfil and the goal was to create the best possible application within one week. 
 
-In the project directory, you can run:
 
-### `npm start`
+## Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ - [Objective](#Objective)
+ - [Our Team](#Our-Team)
+ - [Database](#Database)
+ - [User Manual](#User-Manual)
+ - [Technical Manual](#Technical-Manual)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Objective
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There were 1344 unique indicators available in the database from The World Bank, resulting in 5.66m rows of data. The main focus of the project was to return a visual data consturcted using the raw data given in the database. 
 
-### `npm run build`
+Being able to select different countries to see what the regional differences are as well selecting different indicators based on your query. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Our Team
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Daniel - Project Manager**<br />
+<br />
+**Kamilah - Dev Ops/Software Architecture**<br />
+<br />
+**Milan - QA Tester**<br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Database
 
-### `npm run eject`
+Our Database is based on the World Development Indicators data from The World Bank, which contain over a thousand annual indicators of
+economic development from hundreds of countries around the world. 
+The database source can be found [here!](https://www.kaggle.com/kaggle/world-development-indicators)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## User Manual
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The Home page contains the general information about the website, each page has a navigation bar at the top of the website containing 3 buttons allowing you to navigate across our website, the first 2 buttons are the History and Search button, and the last button is to Log Out of the page .<br /><br />
+First we will register a new account so that we can make the most of the website, by clicking on the register button shown, you can navigate to the Register page. <br /><br />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The Register page lets you register a new account with us!<br />
+The Register form requires 4 fields:
+- E-Mail
+- Username
+- Password
+- Comfirm you Password
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+These 4 fields each have validation to make sure your username and email is unique and that your passwords are matching! <br/>
+If you don't follow the rules when creating an account, you will be met with an error.
 
-## Learn More
+- Your Password should match the confirmation password
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Your Password must be at least 6 characters, failing to do so will show this message...
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- When you successfully fill out the registration form you will be redirected to our log in page to get signed in.
 
-### Code Splitting
+- The Log in page lets you log in to an account <br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- The Log in page requires 2 fields:
+Username:
+Password:
 
-### Analyzing the Bundle Size
+- The username needs to match a username in the database, an error will appear if the username doesn't exist
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- If the password isn't correct for that user, this error will appear
 
-### Making a Progressive Web App
+- When you successfully log in, you will you will be redirected to the search page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- You need to fill ALL input fields that are available so that the search knows what it's looking for, otherwise a graph will not be shown. 
+**At the moment auto-fill is not a feature and indicators must be typed out perfectly but this is something we plan to work on in the future**
+<br/><br/>
+**Also adding multiple countries against one indicator or multiple indicators against one country has not yet been implemented, please do not use the add country/indicator buttons** 
+<br />
 
-### Advanced Configuration
+When filling in the search form with the correct information, a graph will appear that will display the country's data on that indicator point
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The history page is found when you click on the history button displayes on the Navigation bar.
 
-### Deployment
+- Here it will show you all of your previous searches that have been successful and have produced a graph, including the date that you made the search and the countires and indicators you used.<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+-And finally if you wish to log out, click on the log out button and you will be logged out of your account <br/><br/>
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Technical Manual
+
+**Currently in progress...**
+
+
+

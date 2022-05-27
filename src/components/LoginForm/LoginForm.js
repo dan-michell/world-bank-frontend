@@ -11,6 +11,7 @@ function LoginForm(props) {
 
   async function handleUserLogin(e) {
     e.preventDefault();
+    setShowResponse(false);
     const loginResponseInfo = await networking.loginUser(username, password);
     if (loginResponseInfo) {
       navigate("/landing-page/search");

@@ -7,7 +7,12 @@ export default class Networking {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, username, password, passwordConformation }),
+        body: JSON.stringify({
+          email,
+          username,
+          password,
+          passwordConformation,
+        }),
       });
       const json = await response.json();
       return json.response;
@@ -58,9 +63,23 @@ export default class Networking {
         }
       );
       const worldBankData = await response.json();
-      return worldBankData;
+      console.log(worldBankData);
+      return worldBankData.rows;
     } catch (e) {
       console.log(e);
+    }
+  }
+
+  async fetchHistoryData() {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/history`, {
+        method: "GET",
+        credentials: "include",
+      });
+      let historyResponse = await response.json();
+      return historyResponse;
+    } catch (error) {
+      console.log(error);
     }
   }
 
