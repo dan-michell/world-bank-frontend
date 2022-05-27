@@ -71,7 +71,7 @@ function Search(props) {
       startYear,
       endYear
     );
-    props.changeCountryData(countryData.rows);
+    props.changeCountryData(countryData);
     navigate("/landing-page/results");
   }
 
