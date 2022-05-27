@@ -92,15 +92,5 @@ The history page is found when you click on the history button displayes on the 
 
 **Currently in progress...**
 
-This Technical manual is here for you to get the technical side set up
-
-need to: <br />
-node schema.js <br />
-npm install: <br />
-"     " <br />
-react-chartjs-2 <br />
-chart.js <br />
-bcrypt <br />
-
 
 
