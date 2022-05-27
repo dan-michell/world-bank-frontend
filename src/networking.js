@@ -56,14 +56,18 @@ export default class Networking {
 
   async fetchUserSearchData(countryFormValues, indicatorFormValues, startYear, endYear) {
     try {
+      const encodedCountryName = encodeURIComponent(countryFormValues[0].country);
+      const encodedIndicator = encodeURIComponent(indicatorFormValues[0].indicator);
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/search?country=${countryFormValues[0].country}&indicator=${indicatorFormValues[0].indicator}&startYear=${startYear}&endYear=${endYear}`,
+        `${process.env.REACT_APP_API_URL}/search?country=${encodedCountryName}&indicator=${encodedIndicator}&startYear=${startYear}&endYear=${endYear}`,
         {
           credentials: "include",
         }
       );
+      if (!response.ok) {
+        return false;
+      }
       const worldBankData = await response.json();
-      console.log(worldBankData);
       return worldBankData.rows;
     } catch (e) {
       console.log(e);

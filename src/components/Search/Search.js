@@ -9,6 +9,7 @@ function Search(props) {
   const [endYear, setEndYear] = useState("");
   const [countryIndex, setCountryIndex] = useState(true);
   const [indicatorIndex, setIndicatorIndex] = useState(true);
+  const [showResponse, setShowResponse] = useState(false);
   const networking = new Networking();
   const navigate = useNavigate();
 
@@ -65,14 +66,19 @@ function Search(props) {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setShowResponse(false);
     const countryData = await networking.fetchUserSearchData(
       countryFormValues,
       indicatorFormValues,
       startYear,
       endYear
     );
-    props.changeCountryData(countryData);
-    navigate("/landing-page/results");
+    if (!countryData) {
+      setShowResponse(true);
+    } else {
+      props.changeCountryData(countryData);
+      navigate("/landing-page/results");
+    }
   }
 
   return (
@@ -207,6 +213,13 @@ function Search(props) {
           </button>
         </div>
       </form>
+      {showResponse ? (
+        <p data-testid="no-user-found-alert" className="text-gray-700 text-lg mt-5">
+          Unable to retrieve search data, try changing search parameters.
+        </p>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

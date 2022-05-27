@@ -1,8 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-//import App from "/Users/milanpatel/Desktop/RulersLite_Week1/world-bank-frontend/src/App.js";
-
 import Search from "./Search.js";
 
 describe("SearchForm", () => {
