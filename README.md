@@ -73,7 +73,7 @@ Password:
 - When you successfully log in, you will you will be redirected to the search page
 
 - You need to fill ALL input fields that are available so that the search knows what it's looking for, otherwise a graph will not be shown. 
-**At the moment auto-fill is not a feature and indicators must be typed out perfectly but this is something we plan to work on in the future. **
+**At the moment auto-fill is not a feature and indicators must be typed out perfectly but this is something we plan to work on in the future**
 <br/><br/>
 **Also adding multiple countries against one indicator or multiple indicators against one country has not yet been implemented, please do not use the add country/indicator buttons** 
 <br />
