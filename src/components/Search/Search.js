@@ -79,15 +79,15 @@ function Search(props) {
     <div className="flex flex-col justify-center items-center mt-28">
       <h1 className="bg-transparent text-4xl text-center">Search</h1>
 
-      <form onSubmit={handleSubmit} className="w-[65%]">
+      <form onSubmit={handleSubmit} className="w-[60%] flex flex-col items-center justify-center">
         {countryFormValues.map((element, index) => (
-          <div className="flex flex-col items-center justify-center m-10" key={index}>
+          <div className="flex items-center justify-center mt-10 w-full" key={index}>
             <input
               placeholder="Country"
               type="text"
               name="country"
               value={element.country || ""}
-              className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
+              className="block py-1 w-full text-lg text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
               onChange={(e) => handleCountryChange(index, e)}
             />
             {index ? (
@@ -102,19 +102,19 @@ function Search(props) {
           </div>
         ))}
         {indicatorFormValues.map((element, index) => (
-          <div className="flex flex-col items-center justify-center m-10" key={index}>
+          <div className="flex items-center justify-center mt-10 w-full" key={index}>
             <input
               type="text"
               placeholder="Indicator"
               name="indicator"
               value={element.indicator || ""}
-              className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
+              className="block py-1 w-full text-lg text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
               onChange={(e) => handleIndicatorChange(index, e)}
             />
             {index ? (
               <button
                 type="button"
-                className="mt-3 text-gray-200 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500"
+                className="m-5 text-gray-200 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500"
                 onClick={() => removeIndicatorFormFields(index)}
               >
                 Remove
