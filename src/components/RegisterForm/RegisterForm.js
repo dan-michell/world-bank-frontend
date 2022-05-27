@@ -21,7 +21,9 @@ function RegisterForm(props) {
 
   return (
     <div className="flex items-center flex-col h-screen w-screen">
-      <h1 className=" text-6xl mt-20 bg-gray-300 p-10 rounded-3xl shadow-xl">World Bank Dashboard</h1>
+      <h1 className=" text-6xl mt-20 bg-gray-300 p-10 rounded-3xl shadow-xl">
+        World Bank Dashboard
+      </h1>
       <form className="w-[50%] mt-20">
         <h2 className="text-2xl mb-3 animate-pulse">Create Account</h2>
         <div className="relative z-0 w-full mb-6 group">
@@ -101,6 +103,7 @@ function RegisterForm(props) {
         </div>
         <div className="flex items-center">
           <button
+            data-testid="register-button"
             type="submit"
             className="text-gray-200 bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-blue-800"
             onClick={handleRegisterSubmit}
@@ -108,7 +111,11 @@ function RegisterForm(props) {
             Create Account
           </button>
           <Link to="/login">
-            <button type="submit" className="bg-transparent text-gray-600 text-sm italic ml-3 p-0 hover:text-black">
+            <button
+              data-testid= 'has-account-button'
+              type="submit"
+              className="bg-transparent text-gray-600 text-sm italic ml-3 p-0 hover:text-black"
+            >
               Already have an account/Recently registered?
             </button>
           </Link>
