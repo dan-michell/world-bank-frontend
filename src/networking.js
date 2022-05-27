@@ -7,7 +7,12 @@ export default class Networking {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, username, password, passwordConformation }),
+        body: JSON.stringify({
+          email,
+          username,
+          password,
+          passwordConformation,
+        }),
       });
       const json = await response.json();
       return json.response;
@@ -19,14 +24,17 @@ export default class Networking {
   async loginUser(username, password) {
     try {
       console.log();
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/sessions`, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/sessions`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        }
+      );
       if (!response.ok) {
         return false;
       }
@@ -38,10 +46,13 @@ export default class Networking {
 
   async logoutUser() {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/sessions`, {
-        method: "DELETE",
-        credentials: "include",
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/sessions`,
+        {
+          method: "DELETE",
+          credentials: "include",
+        }
+      );
       const json = await response.json();
       return json.response;
     } catch (e) {
@@ -49,7 +60,12 @@ export default class Networking {
     }
   }
 
-  async fetchUserSearchData(countryFormValues, indicatorFormValues, startYear, endYear) {
+  async fetchUserSearchData(
+    countryFormValues,
+    indicatorFormValues,
+    startYear,
+    endYear
+  ) {
     try {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/search?country=${countryFormValues[0].country}&indicator=${indicatorFormValues[0].indicator}&startYear=${startYear}&endYear=${endYear}`,
@@ -64,11 +80,29 @@ export default class Networking {
     }
   }
 
+  async fetchHistoryData() {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/history`, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      let historyResponse = await response.json();
+      return historyResponse;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   async getUser() {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/sessions`, {
-        credentials: "include",
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/sessions`,
+        {
+          credentials: "include",
+        }
+      );
       const user = await response.json();
       return user;
     } catch (e) {
