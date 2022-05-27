@@ -1,4 +1,15 @@
 function HistoryCard(props) {
+  const [historyCard, setHistoryCard] = useState("");
+
+
+  
+  function handleNewSearch(e) {
+    e.preventDefault();
+    const newSearchResponse = await fetch(``)
+    const historyCard = await newSearchResponse.json()
+    setHistoryCard(historyCard)
+  }
+
   return (
     <div className="w-[50%] rounded-lg bg-gray-300 shadow-xl mb-6">
       <div className="p-4 flex justify-between ">
