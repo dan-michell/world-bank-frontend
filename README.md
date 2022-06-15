@@ -3,12 +3,12 @@
 Welcome to Rulers-Lite Week 10 project:
 
 The brief was to create a prototype data visualisation dashboard for The World Bank that displays graphical data on World Development Indicators. 
-We were tasked to include as a minimum viable product:
- - Log In Feature
+We were tasked to include the following features as a minimum viable product:
+ - Log In/Registration
  - Search Functionality (One indicator, one country)
- - Search History Functionality
-In addition to these core features, we were given a number of other User Stories to fulfil and the goal was to create the best possible application within one week. 
+ - Search History
 
+In addition to these core features, we were given a number of other User Stories to fulfil and the goal was to create the best possible application within one week. 
 
 ## Contents
 
@@ -27,7 +27,7 @@ Being able to select different countries to see what the regional differences ar
 
 ## Our Team
 
-**Daniel - Project Manager**<br />
+**Dan - Project Manager**<br />
 <br />
 **Kamilah - Dev Ops/Software Architecture**<br />
 <br />
@@ -37,7 +37,7 @@ Being able to select different countries to see what the regional differences ar
 
 Our Database is based on the World Development Indicators data from The World Bank, which contain over a thousand annual indicators of
 economic development from hundreds of countries around the world. 
-The database source can be found [here!](https://www.kaggle.com/kaggle/world-development-indicators)
+The database source can be found [here](https://www.kaggle.com/kaggle/world-development-indicators)
 
 ## User Manual
 
@@ -81,11 +81,11 @@ Password:
 When filling in the search form with the correct information, a graph will appear that will display the country's data on that indicator point
 <br />
 
-The history page is found when you click on the history button displayes on the Navigation bar.
+The history page is displayed when you click on the history button on the Navigation bar.
 
-- Here it will show you all of your previous searches that have been successful and have produced a graph, including the date that you made the search and the countires and indicators you used.<br/>
+- Here it will show you all of your previous searches that have been successful and have produced a graph, including the date that you made the search and the countires and indicators you used. You can click the view button to see the graph produced by that search.<br/>
 
--And finally if you wish to log out, click on the log out button and you will be logged out of your account <br/><br/>
+- And finally if you wish to log out, click on the log out button and you will be logged out of your account and redirected to the login page<br/><br/>
 
 
 ## Technical Manual
