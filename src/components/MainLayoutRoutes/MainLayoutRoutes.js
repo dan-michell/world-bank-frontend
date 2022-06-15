@@ -3,6 +3,7 @@ import Results from "../Results/Results";
 import History from "../History/History";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+//eslint-disable-next-line
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 

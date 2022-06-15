@@ -12,6 +12,7 @@ function History(props) {
       setHistory(userData);
     }
     fetchUserHistory();
+    // eslint-disable-next-line
   }, []);
 
   function populateHistoryCards() {

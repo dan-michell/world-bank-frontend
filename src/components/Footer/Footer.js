@@ -4,12 +4,15 @@ function Footer() {
       <span className="text-lg text-gray-300">World Bank</span>
       <ul className="flex text-sm text-gray-300">
         <li>
-          <a href="#" className="mr-6 hover:underline">
+          <a href="https://github.com/dan-michell/world-bank-frontend" className="mr-6 hover:underline">
             GitHub
           </a>
         </li>
         <li>
-          <a href="#" className="mr-6 hover:underline">
+          <a
+            href="https://www.kaggle.com/datasets/kaggle/world-development-indicators"
+            className="mr-6 hover:underline"
+          >
             Data
           </a>
         </li>
